@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>5.3 Intermolecular Forces of Covalent and Metallic Substances</title>
+<style>
+  :root {
+    --navy: #1c2b63;
+    --navy-dark: #141f4a;
+    --purple: #6b3f8f;
+    --purple-soft: #efe6f7;
+    --teal: #2a8fa8;
+    --teal-soft: #e6f4f8;
+    --orange: #e07a2e;
+    --orange-soft: #fdf0e4;
+    --gold: #f0b429;
+    --gold-soft: #fff6d6;
+    --cream: #fbf7f0;
+    --ink: #1d1d2b;
+    --muted: #5b5b6e;
+    --card: #ffffff;
+    --good: #2e7d4f;
+    --good-soft: #e6f4ec;
+    --bad: #b03a2e;
+    --bad-soft: #fbe9e7;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 70px; }
+  body {
+    margin: 0; font-family: "Segoe UI", system-ui, Arial, sans-serif;
+    background: var(--cream); color: var(--ink); line-height: 1.6; font-size: 17px;
+  }
+
+  header {
+    background: var(--navy); color: #fff; text-align: center;
+    padding: 30px 20px 24px; border-bottom: 6px solid var(--gold);
+  }
+  header .unit { color: var(--gold); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; font-size: .85rem; margin: 0; }
+  header h1 { margin: 6px 0 8px; font-size: 1.9rem; line-height: 1.25; }
+  header .tag { color: var(--gold); font-weight: 700; margin: 0; }
+  .target {
+    background: var(--purple); color: #fff; border-radius: 12px;
+    padding: 14px 18px; max-width: 860px; margin: 18px auto 0;
+  }
+  nav.top {
+    position: sticky; top: 0; z-index: 10; background: var(--navy-dark);
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 4px; padding: 8px 10px;
+  }
+  nav.top a { color: #fff; text-decoration: none; font-size: .88rem; font-weight: 600; padding: 6px 10px; border-radius: 8px; }
+  nav.top a:hover, nav.top a:focus { background: var(--teal); outline: none; }
+
+  main { max-width: 880px; margin: 0 auto; padding: 22px 18px 40px; }
+
+  section {
+    background: var(--card); border-radius: 16px; padding: 24px 26px; margin-bottom: 26px;
+    box-shadow: 0 2px 8px rgba(28, 43, 99, .12); border-top: 8px solid var(--teal);
+  }
+  section.purple { border-top-color: var(--purple); }
+  section.orange { border-top-color: var(--orange); }
+  section.gold { border-top-color: var(--gold); }
+  section.navy { border-top-color: var(--navy); }
+  .step { color: var(--orange); font-weight: 800; font-size: .82rem; text-transform: uppercase; letter-spacing: .08em; margin: 0; }
+  h2 { color: var(--navy); margin: 4px 0 10px; font-size: 1.5rem; }
+  h3 { color: var(--purple); margin: 22px 0 8px; font-size: 1.12rem; }
+  p { margin: 8px 0; }
+  .lead { font-size: 1.05rem; color: var(--muted); }
+  .vocab { font-weight: 700; color: var(--navy); border-bottom: 2px dotted var(--teal); }
+
+  .callout { border-radius: 10px; padding: 12px 16px; margin: 14px 0; border-left: 6px solid var(--gold); background: var(--gold-soft); }
+  .callout.fact { border-left-color: var(--good); background: var(--good-soft); }
+  .callout.think { border-left-color: var(--purple); background: var(--purple-soft); }
+  .callout.warn { border-left-color: var(--bad); background: var(--bad-soft); }
+  .callout strong { display: block; margin-bottom: 2px; }
+
+  button.btn {
+    background: var(--teal); color: #fff; border: none; border-radius: 9px;
+    padding: 10px 18px; font-size: .98rem; font-weight: 700; cursor: pointer; margin-top: 8px;
+  }
+  button.btn:hover { background: var(--navy); }
+  button.btn.alt { background: var(--purple); }
+  button.btn.alt:hover { background: var(--navy); }
+  button.chip {
+    background: #fff; color: var(--navy); border: 2px solid var(--teal); border-radius: 999px;
+    padding: 6px 14px; font-weight: 600; cursor: pointer; margin: 4px;
+  }
+  button.chip.active, button.chip:hover { background: var(--teal); color: #fff; }
+  select { font-size: 1rem; padding: 4px 8px; border: 2px solid var(--teal); border-radius: 7px; background: #fff; }
+  select.right { border-color: var(--good); background: var(--good-soft); }
+  select.wrong { border-color: var(--bad); background: var(--bad-soft); }
+  textarea {
+    width: 100%; min-height: 100px; font: inherit; padding: 10px; border-radius: 10px;
+    border: 2px solid var(--purple-soft); background: #fdfcff;
+  }
+  textarea:focus { outline: 3px solid var(--purple-soft); border-color: var(--purple); }
+  .feedback { margin-top: 8px; font-weight: 700; min-height: 1.4em; }
+  .feedback.right { color: var(--good); }
+  .feedback.wrong { color: var(--bad); }
+
+  /* tables */
+  table.compare { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: .95rem; }
+  table.compare th, table.compare td { border: 1px solid #e0dce8; padding: 8px 10px; vertical-align: top; text-align: left; }
+  table.compare th { background: var(--navy); color: #fff; }
+  table.compare td:first-child { font-weight: 700; color: var(--navy); }
+
+  /* supplemental videos */
+  .supp {
+    background: var(--teal-soft); border-radius: 14px; padding: 18px; margin-top: 18px;
+    border: 2px dashed var(--teal);
+  }
+  .supp h3 { margin-top: 0; color: var(--navy); }
+  .video-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+  @media (min-width: 720px) { .video-grid { grid-template-columns: 1fr 1fr; } }
+  .video-card { background: #fff; border-radius: 12px; padding: 12px; }
+  .video-card h4 { margin: 0 0 8px; color: var(--navy); font-size: .98rem; }
+  .video-frame { position: relative; width: 100%; padding-top: 56.25%; border-radius: 9px; overflow: hidden; background: #d4e6ee; }
+  .video-frame iframe, .video-frame .placeholder { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .video-frame .placeholder {
+    display: flex; align-items: center; justify-content: center; text-align: center;
+    color: var(--navy); padding: 14px; font-weight: 600;
+  }
+
+  /* sorter */
+  .sort-item {
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px;
+    padding: 10px 12px; border-radius: 10px; background: #f7f6fb; margin: 8px 0;
+  }
+  .sort-item.right { background: var(--good-soft); }
+  .sort-item.wrong { background: var(--bad-soft); }
+
+  /* flip cards */
+  .card-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+  @media (min-width: 620px) { .card-grid { grid-template-columns: 1fr 1fr; } }
+  .flip {
+    background: var(--purple-soft); border: 2px solid var(--purple); border-radius: 12px;
+    padding: 14px 16px; cursor: pointer; min-height: 110px;
+  }
+  .flip .label { font-weight: 800; color: var(--purple); font-size: .85rem; text-transform: uppercase; letter-spacing: .05em; }
+  .flip .front { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin-top: 4px; }
+  .flip .back { display: none; margin-top: 8px; }
+  .flip.open { background: #fff; }
+  .flip.open .back { display: block; }
+  .flip.open .front { color: var(--muted); font-weight: 600; font-size: .95rem; }
+
+  /* bar chart */
+  .chart { display: flex; align-items: flex-end; gap: 14px; height: 230px; padding: 10px 6px 0; border-bottom: 3px solid var(--navy); margin-top: 12px; }
+  .bar-wrap { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; cursor: pointer; }
+  .bar {
+    width: 100%; max-width: 90px; border-radius: 8px 8px 0 0; background: var(--teal);
+    transition: background .2s; display: flex; align-items: flex-start; justify-content: center;
+    color: #fff; font-weight: 700; padding-top: 6px; font-size: .9rem;
+  }
+  .bar-wrap.sel .bar { background: var(--orange); }
+  .bar-label { font-weight: 800; color: var(--navy); margin-top: 6px; }
+  .chart-info { background: var(--orange-soft); border-radius: 10px; padding: 12px 14px; margin-top: 12px; min-height: 60px; }
+
+  /* polarity */
+  .molecule-row { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 10px; }
+  @media (min-width: 620px) { .molecule-row { grid-template-columns: 1fr 1fr; } }
+  .molecule { border-radius: 12px; padding: 14px; background: #f7f6fb; text-align: center; }
+  .molecule .formula { font-size: 1.6rem; font-weight: 800; color: var(--navy); }
+  .molecule .charge { font-size: 1rem; font-weight: 700; margin: 6px 0; min-height: 2.2em; }
+  .molecule .bp { font-weight: 700; }
+  .dplus { color: var(--bad); }
+  .dminus { color: var(--teal); }
+
+  /* sea of electrons */
+  .sea { position: relative; height: 230px; border-radius: 14px; background: linear-gradient(135deg, #e9e4f5, #d9f0f6); overflow: hidden; margin-top: 10px; }
+  .nucleus {
+    position: absolute; width: 34px; height: 34px; border-radius: 50%; background: var(--bad); color: #fff;
+    font-weight: 800; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 4px rgba(0,0,0,.2);
+  }
+  .electron { position: absolute; width: 12px; height: 12px; border-radius: 50%; background: var(--purple); animation: drift 4s ease-in-out infinite alternate; }
+  .sea.paused .electron { animation-play-state: paused; }
+  @keyframes drift {
+    0%   { transform: translate(0, 0); }
+    50%  { transform: translate(var(--dx), var(--dy)); }
+    100% { transform: translate(calc(var(--dx) * -1), calc(var(--dy) * -1)); }
+  }
+  .prop-info { background: var(--purple-soft); border-radius: 10px; padding: 12px 14px; margin-top: 10px; min-height: 60px; }
+
+  /* card sort */
+  table.sort { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: .95rem; }
+  table.sort th, table.sort td { padding: 8px; border-bottom: 1px solid #ece9f2; text-align: left; vertical-align: middle; }
+  table.sort th { color: var(--navy); }
+  table.sort tr.right td { background: var(--good-soft); }
+  table.sort tr.wrong td { background: var(--bad-soft); }
+
+  /* quiz */
+  .quiz-q { background: #f7f6fb; border-radius: 12px; padding: 14px 16px; margin: 12px 0; }
+  .quiz-q p { font-weight: 700; margin-top: 0; }
+  .quiz-q label { display: block; padding: 5px 0; cursor: pointer; }
+
+  .scale { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+  .scale label {
+    flex: 1 1 150px; background: #f4f1f8; border: 2px solid #d8cfe6; border-radius: 10px;
+    padding: 12px; text-align: center; cursor: pointer; font-weight: 700;
+  }
+  .scale input { display: none; }
+  .scale label:has(input:checked) { border-color: var(--purple); background: var(--purple-soft); color: var(--purple); }
+
+  table.gloss { width: 100%; border-collapse: collapse; margin-top: 8px; }
+  table.gloss td { padding: 9px 10px; border-bottom: 1px solid #ece9f2; vertical-align: top; }
+  table.gloss td:first-child { font-weight: 800; color: var(--navy); width: 32%; white-space: nowrap; }
+
+  .print-btn {
+    display: block; margin: 8px auto 30px; background: var(--orange); color: #fff; border: none;
+    border-radius: 10px; padding: 12px 24px; font-size: 1rem; font-weight: 700; cursor: pointer;
+  }
+  .print-btn:hover { background: var(--navy); }
+  footer { text-align: center; color: var(--navy); font-size: .9rem; padding: 0 20px 30px; }
+
+  @media print {
+    nav.top, .print-btn, button.btn, button.chip, .supp, .scale, textarea { display: none !important; }
+    body { background: #fff; font-size: 12pt; }
+    section { box-shadow: none; break-inside: avoid; border-top: 2px solid #000; }
+    .flip .back { display: block !important; }
+    .flip { border: 1px solid #000; background: #fff; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <p class="unit">Unit 5 · Lesson 5.3 · TEKS C.7D</p>
+  <h1>Intermolecular Forces of Covalent and Metallic Substances</h1>
+  <p class="tag">Every atom. Every choice. Every day.</p>
+  <div class="target">
+    <strong>Today's target:</strong> I can analyze the properties of ionic, covalent, and metallic substances in terms of intramolecular and intermolecular forces.
+  </div>
+</header>
+
+<nav class="top" aria-label="Lesson sections">
+  <a href="#intra">Intra vs Inter</a>
+  <a href="#imfs">The IMFs</a>
+  <a href="#compare">Compare</a>
+  <a href="#metals">Metals</a>
+  <a href="#glossary">Glossary</a>
+  <a href="#check">Check</a>
+</nav>
+
+<main>
+
+  <!-- ============ INTRA VS INTER ============ -->
+  <section id="intra" class="teal">
+    <p class="step">Investigate and Learn · Reading</p>
+    <h2>Intramolecular vs. intermolecular forces</h2>
+    <p>When atoms bond to form a compound, the attractions that hold those atoms together are called <span class="vocab">intramolecular forces</span>. The attractions between separate particles are called <span class="vocab">intermolecular forces (IMFs)</span>.</p>
+    <p>IMFs are much weaker than the bonds inside molecules. You can see the difference when you boil a liquid: boiling usually pulls molecules apart, but it does not break the bonds inside them.</p>
+
+    <h3>Sort it: inside or between?</h3>
+    <div id="sorter"></div>
+    <button class="btn" id="sorter-check">Check my sort</button>
+    <span id="sorter-score" style="margin-left:10px;font-weight:700;color:var(--purple);"></span>
+
+    <h3>Why IMFs matter</h3>
+    <p>IMFs affect every molecular substance. The strength of the IMFs changes boiling and melting points, how sticky and cohesive a substance is, how easily it evaporates (vapor pressure), and how well it dissolves.</p>
+    <div class="callout warn"><strong>Careful with generalizations:</strong> You may read that substances with the strongest IMFs are solids at room temperature. That is only a rough pattern for molecular substances. Ionic and metallic solids are held together by bonds, not by IMFs, so the pattern does not explain them.</div>
+  </section>
+
+  <!-- ============ IMFS ============ -->
+  <section id="imfs" class="purple">
+    <p class="step">Investigate and Learn · The four types</p>
+    <h2>Types of IMFs</h2>
+    <p>There are four IMFs. They are listed below from weakest to strongest. Tap each card to read more.</p>
+    <div class="card-grid" id="imf-cards"></div>
+
+    <h3>London dispersion forces and size</h3>
+    <p>Every substance has London dispersion forces. Electrons are always moving, so for a moment one side of a molecule can have more electrons than the other. That brief imbalance creates a temporary dipole, and it can attract a neighboring molecule. Molecules with more electrons have stronger dispersion forces, so they need more energy to boil.</p>
+    <p>Tap a bar to compare four halogen molecules.</p>
+    <div class="chart" id="bp-chart"></div>
+    <div class="chart-info" id="bp-info">Tap a bar to see its electron count and boiling point.</div>
+
+    <h3>Dipole-dipole forces: CO vs. N<sub>2</sub></h3>
+    <p>Dipole-dipole forces happen between polar molecules. The slightly positive side of one molecule attracts the slightly negative side of another. Both CO and N<sub>2</sub> have 14 electrons, so their dispersion forces are similar. Tap the button to see which molecule is polar.</p>
+    <button class="btn alt" id="polar-toggle">Show polarity</button>
+    <div class="molecule-row">
+      <div class="molecule">
+        <div class="formula">CO</div>
+        <div class="charge" id="co-charge">&nbsp;</div>
+        <div class="bp">Boiling point: 82 K</div>
+      </div>
+      <div class="molecule">
+        <div class="formula">N<sub>2</sub></div>
+        <div class="charge" id="n2-charge">&nbsp;</div>
+        <div class="bp">Boiling point: 77 K</div>
+      </div>
+    </div>
+    <p>CO has a higher boiling point because it is polar. It has dipole-dipole forces on top of its dispersion forces. N<sub>2</sub> is nonpolar and has only dispersion forces.</p>
+
+    <h3>Hydrogen bonding</h3>
+    <p>Hydrogen bonding is a special, strong type of dipole-dipole attraction. It happens when a hydrogen atom is bonded to a very electronegative atom (N, O, or F) and is attracted to an N, O, or F atom on a nearby molecule. Water (H<sub>2</sub>O), methanol (CH<sub>3</sub>OH), and hydrogen fluoride (HF) all show hydrogen bonding.</p>
+    <div class="callout warn"><strong>Misconception:</strong> The name "hydrogen bond" makes it sound like a chemical bond. It is not. It is an intermolecular force between two molecules.</div>
+
+    <h3>Ion-dipole forces</h3>
+    <p>When an ionic compound dissolves in water, the water molecules surround the ions. The attraction between an ion and a polar molecule is an ion-dipole force. It is the strongest IMF in this lesson.</p>
+
+    <h3>Put them in order</h3>
+    <p>Choose the IMF for each rank, from weakest to strongest.</p>
+    <table class="sort" id="ladder-table">
+      <tr><th>Rank</th><th>IMF</th></tr>
+      <tr><td>1 (weakest)</td><td><select data-ans="London dispersion"><option value="">choose</option><option>Hydrogen bonding</option><option>London dispersion</option><option>Dipole-dipole</option><option>Ion-dipole</option></select></td></tr>
+      <tr><td>2</td><td><select data-ans="Dipole-dipole"><option value="">choose</option><option>Hydrogen bonding</option><option>London dispersion</option><option>Dipole-dipole</option><option>Ion-dipole</option></select></td></tr>
+      <tr><td>3</td><td><select data-ans="Hydrogen bonding"><option value="">choose</option><option>Hydrogen bonding</option><option>London dispersion</option><option>Dipole-dipole</option><option>Ion-dipole</option></select></td></tr>
+      <tr><td>4 (strongest)</td><td><select data-ans="Ion-dipole"><option value="">choose</option><option>Hydrogen bonding</option><option>London dispersion</option><option>Dipole-dipole</option><option>Ion-dipole</option></select></td></tr>
+    </table>
+    <button class="btn" id="ladder-check">Check my order</button>
+    <span id="ladder-score" style="margin-left:10px;font-weight:700;color:var(--purple);"></span>
+
+    <!-- SUPPLEMENTAL VIDEO 1 -->
+    <div class="supp">
+      <h3>Need another explanation? Watch the lesson video (optional)</h3>
+      <p>Use this after you have read the section above. It covers the same ideas in a different way.</p>
+      <div class="video-grid">
+        <div class="video-card">
+          <h4>Intermolecular Forces of Covalent and Metallic Substances (9:04)</h4>
+          <div class="video-frame" id="video1"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COMPARE ============ -->
+  <section id="compare" class="navy">
+    <p class="step">Investigate and Learn · Bonding comparison</p>
+    <h2>Ionic, covalent, and metallic substances</h2>
+    <p>The target asks you to analyze all three types. Use the table to connect the bonds inside each substance to the forces between particles.</p>
+    <table class="compare">
+      <tr><th></th><th>Ionic</th><th>Covalent (molecular)</th><th>Metallic</th></tr>
+      <tr><td>What holds atoms together</td><td>Attraction between oppositely charged ions</td><td>Shared electron pairs inside each molecule</td><td>Attraction between metal cores and delocalized electrons</td></tr>
+      <tr><td>What holds particles together</td><td>Strong ionic bonds throughout the crystal</td><td>IMFs between molecules, which are weak compared to the bonds inside them</td><td>The metallic bond itself, spread through the whole metal</td></tr>
+      <tr><td>Conducts electricity when...</td><td>Melted or dissolved, when ions can move</td><td>Generally does not conduct</td><td>Solid or liquid, because delocalized electrons can move</td></tr>
+      <tr><td>Typical behavior</td><td>High melting points, brittle</td><td>Melting and boiling points depend on the strength of the IMFs</td><td>Malleable, ductile, shiny</td></tr>
+    </table>
+    <div class="callout think"><strong>Think about it:</strong> Why does a molecular substance with weak IMFs melt at a lower temperature than an ionic solid? Use the words "bonds" and "IMFs" in your answer.</div>
+  </section>
+
+  <!-- ============ METALS ============ -->
+  <section id="metals" class="purple">
+    <p class="step">Investigate and Learn · Metallic bonding</p>
+    <h2>The sea of electrons model</h2>
+    <p>Metals have lower ionization energies than nonmetals, so their atoms let go of valence electrons relatively easily. Metal atoms also have several empty valence orbitals. Neighboring atoms' empty orbitals overlap, so the electrons can move freely from one atom to the next.</p>
+    <p>The <span class="vocab">sea of electrons model</span> says that these electrons form a "sea" of <span class="vocab">delocalized electrons</span>. The atoms become positive cores arranged in a lattice, and the electrons move between them. <span class="vocab">Metallic bonding</span> is the attraction between those positive cores and the delocalized electrons.</p>
+    <div class="callout warn"><strong>Watch out:</strong> Metal atoms become positive cores, but their electrons do not stay with one atom. The electrons belong to the whole metal. The total number of protons and electrons does not change.</div>
+
+    <p>Press pause to freeze the electrons. Press play to watch them move.</p>
+    <div class="sea" id="sea"></div>
+    <button class="btn alt" id="sea-toggle">Pause</button>
+
+    <h3>Metallic properties</h3>
+    <p>Metals are conductive, malleable, ductile, and shiny. Tap a property to see how the sea of electrons explains it.</p>
+    <div>
+      <button class="chip" data-prop="cond">Conductivity</button>
+      <button class="chip" data-prop="mall">Malleability</button>
+      <button class="chip" data-prop="duct">Ductility</button>
+      <button class="chip" data-prop="lust">Luster</button>
+    </div>
+    <div class="prop-info" id="prop-info">Choose a property above.</div>
+
+    <!-- SUPPLEMENTAL VIDEO 2 -->
+    <div class="supp">
+      <h3>Need another look at electron movement? (optional)</h3>
+      <div class="video-grid">
+        <div class="video-card">
+          <h4>Sea of Electrons Model (animation, 5 min)</h4>
+          <div class="video-frame" id="video2"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GLOSSARY ============ -->
+  <section id="glossary" class="navy">
+    <p class="step">Reference</p>
+    <h2>Key words</h2>
+    <table class="gloss">
+      <tr><td>Intramolecular force</td><td>A force that holds atoms together inside a compound.</td></tr>
+      <tr><td>Intermolecular force (IMF)</td><td>An attraction between neighboring particles.</td></tr>
+      <tr><td>London dispersion force</td><td>The weakest IMF. It comes from temporary dipoles caused by moving electrons.</td></tr>
+      <tr><td>Dipole</td><td>A part of a molecule where the charge is uneven, so one side is slightly positive and the other slightly negative.</td></tr>
+      <tr><td>Dipole-dipole force</td><td>An attraction between the slightly positive end of one polar molecule and the slightly negative end of another.</td></tr>
+      <tr><td>Hydrogen bonding</td><td>A strong IMF between a hydrogen atom bonded to N, O, or F and an N, O, or F atom on another molecule.</td></tr>
+      <tr><td>Ion-dipole force</td><td>The strongest IMF in this lesson. It happens between an ion and a polar molecule, such as water.</td></tr>
+      <tr><td>Delocalized electrons</td><td>Electrons that move freely among many atoms instead of belonging to one atom.</td></tr>
+      <tr><td>Metallic bond</td><td>The attraction between metal cores and delocalized electrons.</td></tr>
+      <tr><td>Sea of electrons model</td><td>The model that explains metallic bonding with delocalized electrons moving between metal atoms.</td></tr>
+      <tr><td>Conductivity</td><td>How well a substance transfers heat or electricity.</td></tr>
+      <tr><td>Malleability</td><td>The ability to be hammered or pressed into a new shape without breaking.</td></tr>
+      <tr><td>Ductility</td><td>The ability to be drawn into a thin wire without breaking.</td></tr>
+    </table>
+  </section>
+
+  <!-- ============ CHECK ============ -->
+  <section id="check" class="purple">
+    <p class="step">Check Yourself</p>
+    <h2>How do you feel about today's target?</h2>
+    <p>Pick one. Be honest. This helps you and your teacher plan the next step.</p>
+    <div class="scale">
+      <label><input type="radio" name="self" value="Not yet"> Not yet</label>
+      <label><input type="radio" name="self" value="Getting there"> Getting there</label>
+      <label><input type="radio" name="self" value="Got it"> Got it</label>
+      <label><input type="radio" name="self" value="Could teach it"> Could teach it</label>
+    </div>
+    <p id="self-msg" style="margin-top:12px;font-weight:700;color:var(--purple);"></p>
+  </section>
+
+  <button class="print-btn" onclick="window.print()">Print or save as PDF</button>
+</main>
+
+<footer>
+  Chemistry of Us · Every atom. Every choice. Every day.<br>
+  Lesson content adapted from the Summit K12 Lesson 5.3 guide for classroom use.
+</footer>
+
+<script>
+  /* ---------- VIDEO SETTINGS ----------
+     Paste embed links into src. YouTube format: https://www.youtube.com/embed/VIDEO_ID
+     Leave empty to show a placeholder. */
+  const VIDEOS = {
+    video1: { src: "https://www.youtube.com/embed/0nRw--EZO5I" },  // Intermolecular Forces (UPDATED), covers IMFs in metals, ionic, and covalent compounds
+    video2: { src: "https://www.youtube.com/embed/eVv3TpaQ2-A" }   // Paul Andersen, Metallic Bonding, electron sea model
+  };
+  for (const [id, cfg] of Object.entries(VIDEOS)) {
+    const box = document.getElementById(id);
+    if (cfg.src) {
+      const f = document.createElement("iframe");
+      f.src = cfg.src;
+      f.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+      f.allowFullscreen = true;
+      box.appendChild(f);
+    } else {
+      const p = document.createElement("div");
+      p.className = "placeholder";
+      p.textContent = "Video link coming soon. Ask your teacher for the link.";
+      box.appendChild(p);
+    }
+  }
+
+  /* ---------- SORTER ---------- */
+  const sortItems = [
+    { text: "The bonds holding the two hydrogen atoms and one oxygen atom together in water", ans: "intra" },
+    { text: "The attraction between two neighboring water molecules", ans: "inter" },
+    { text: "The bonds holding sodium and chlorine together in table salt", ans: "intra" },
+    { text: "The attraction between neighboring methane molecules", ans: "inter" },
+    { text: "The attraction between copper atoms in a wire", ans: "intra" },
+    { text: "The attraction between an ion and nearby water molecules", ans: "inter" }
+  ];
+  const sorter = document.getElementById("sorter");
+  sortItems.forEach((item, i) => {
+    const row = document.createElement("div");
+    row.className = "sort-item";
+    row.dataset.idx = i;
+    row.innerHTML = `<span style="flex:1 1 260px">${item.text}</span>
+      <span>
+        <button class="chip" data-val="intra">Holds atoms together</button>
+        <button class="chip" data-val="inter">Attracts neighbors</button>
+      </span>`;
+    sorter.appendChild(row);
+  });
+  sorter.addEventListener("click", e => {
+    const btn = e.target.closest("button[data-val]");
+    if (!btn) return;
+    const row = btn.closest(".sort-item");
+    row.querySelectorAll("button").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    row.dataset.choice = btn.dataset.val;
+    row.classList.remove("right", "wrong");
+  });
+  document.getElementById("sorter-check").addEventListener("click", () => {
+    let right = 0;
+    sorter.querySelectorAll(".sort-item").forEach(row => {
+      const item = sortItems[row.dataset.idx];
+      row.classList.remove("right", "wrong");
+      if (!row.dataset.choice) return;
+      const ok = row.dataset.choice === item.ans;
+      row.classList.add(ok ? "right" : "wrong");
+      if (ok) right++;
+    });
+    document.getElementById("sorter-score").textContent = `${right} of ${sortItems.length} correct`;
+  });
+
+  /* ---------- IMF FLIP CARDS ---------- */
+  const imfs = [
+    { name: "London dispersion", note: "Weakest", back: "Every substance has these. Electrons are always moving, so temporary dipoles form and attract neighbors. Bigger molecules with more electrons have stronger dispersion forces." },
+    { name: "Dipole-dipole", note: "Stronger", back: "Happens between polar molecules. The partly positive end of one molecule attracts the partly negative end of another." },
+    { name: "Hydrogen bonding", note: "Strong", back: "A hydrogen bonded to N, O, or F is attracted to an N, O, or F on another molecule. Found in water, methanol, and HF." },
+    { name: "Ion-dipole", note: "Strongest", back: "Forms between an ion and a polar molecule, such as when a salt dissolves in water." }
+  ];
+  function buildFlips(list, container) {
+    list.forEach(item => {
+      const d = document.createElement("div");
+      d.className = "flip";
+      d.tabIndex = 0;
+      d.innerHTML = `<div class="label">${item.note}</div>
+        <div class="front">${item.name}</div>
+        <div class="back">${item.back}</div>`;
+      d.addEventListener("click", () => d.classList.toggle("open"));
+      d.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); d.classList.toggle("open"); } });
+      container.appendChild(d);
+    });
+  }
+  buildFlips(imfs, document.getElementById("imf-cards"));
+
+  /* ---------- BOILING POINT CHART ---------- */
+  const halogens = [
+    { name: "F₂", bp: 85, e: 18, note: "Few electrons, so weak dispersion forces and a very low boiling point." },
+    { name: "Cl₂", bp: 239, e: 34, note: "More electrons than F₂, so dispersion forces are stronger." },
+    { name: "Br₂", bp: 332, e: 70, note: "Even more electrons, so the boiling point is higher." },
+    { name: "I₂", bp: 458, e: 106, note: "The most electrons here, so it has the strongest dispersion forces and the highest boiling point." }
+  ];
+  const chart = document.getElementById("bp-chart");
+  const info = document.getElementById("bp-info");
+  halogens.forEach((h, i) => {
+    const w = document.createElement("div");
+    w.className = "bar-wrap";
+    w.dataset.idx = i;
+    w.innerHTML = `<div class="bar" style="height:${Math.round(h.bp / 458 * 180)}px">${h.bp} K</div>
+      <div class="bar-label">${h.name}</div>`;
+    chart.appendChild(w);
+  });
+  chart.addEventListener("click", e => {
+    const w = e.target.closest(".bar-wrap");
+    if (!w) return;
+    chart.querySelectorAll(".bar-wrap").forEach(x => x.classList.remove("sel"));
+    w.classList.add("sel");
+    const h = halogens[w.dataset.idx];
+    info.innerHTML = `<strong>${h.name}</strong>: ${h.e} electrons, boiling point ${h.bp} K. ${h.note}`;
+  });
+
+  /* ---------- POLARITY TOGGLE ---------- */
+  const polarBtn = document.getElementById("polar-toggle");
+  polarBtn.addEventListener("click", () => {
+    const on = polarBtn.dataset.on !== "1";
+    polarBtn.dataset.on = on ? "1" : "0";
+    document.getElementById("co-charge").innerHTML = on ? '<span class="dplus">δ+</span> C = O <span class="dminus">δ−</span>' : "&nbsp;";
+    document.getElementById("n2-charge").innerHTML = on ? "Nonpolar: no uneven charge" : "&nbsp;";
+    polarBtn.textContent = on ? "Hide polarity" : "Show polarity";
+  });
+
+  /* ---------- SEA OF ELECTRONS ---------- */
+  const sea = document.getElementById("sea");
+  for (let r = 0; r < 3; r++) for (let c = 0; c < 5; c++) {
+    const n = document.createElement("div");
+    n.className = "nucleus";
+    n.textContent = "+";
+    n.style.left = `${8 + c * 19}%`;
+    n.style.top = `${12 + r * 30}%`;
+    sea.appendChild(n);
+  }
+  for (let i = 0; i < 16; i++) {
+    const e = document.createElement("div");
+    e.className = "electron";
+    e.style.left = `${Math.random() * 90 + 3}%`;
+    e.style.top = `${Math.random() * 85 + 5}%`;
+    e.style.setProperty("--dx", `${Math.round(Math.random() * 60 - 30)}px`);
+    e.style.setProperty("--dy", `${Math.round(Math.random() * 60 - 30)}px`);
+    e.style.animationDelay = `${(-Math.random() * 4).toFixed(2)}s`;
+    sea.appendChild(e);
+  }
+  const seaBtn = document.getElementById("sea-toggle");
+  seaBtn.addEventListener("click", () => {
+    const paused = sea.classList.toggle("paused");
+    seaBtn.textContent = paused ? "Play" : "Pause";
+  });
+
+  const propInfo = {
+    cond: "Conductivity: Delocalized electrons are free to move, so they carry heat and electric charge through the metal.",
+    mall: "Malleability: Metal layers can slide past each other. The electrons stay spread out, so the metallic bond holds the metal together while it changes shape.",
+    duct: "Ductility: Like malleability, the metal can be pulled into a wire. The delocalized electrons keep the atoms bonded as the shape stretches.",
+    lust: "Luster: Free electrons interact with light, which gives metals their shiny look."
+  };
+  document.querySelectorAll("[data-prop]").forEach(b => {
+    b.addEventListener("click", () => {
+      document.querySelectorAll("[data-prop]").forEach(x => x.classList.remove("active"));
+      b.classList.add("active");
+      document.getElementById("prop-info").textContent = propInfo[b.dataset.prop];
+    });
+  });
+
+  /* ---------- SELECT CHECKS (ladder and card sort) ---------- */
+  function markSelect(sel, ok) {
+    sel.classList.remove("right", "wrong");
+    if (sel.value === "") return false;
+    sel.classList.add(ok ? "right" : "wrong");
+    return ok;
+  }
+  document.getElementById("ladder-check").addEventListener("click", () => {
+    const sels = document.querySelectorAll("#ladder-table select[data-ans]");
+    let right = 0;
+    sels.forEach(s => { if (markSelect(s, s.value === s.dataset.ans)) right++; });
+    document.getElementById("ladder-score").textContent = `${right} of ${sels.length} correct`;
+  });
+
+  /* ---------- SELF CHECK ---------- */
+  const msgs = {
+    "Not yet": "That's okay. Go back to the Intra vs Inter section and try the sorter again.",
+    "Getting there": "Good progress. Try the card sort and the boiling point chart again.",
+    "Got it": "Great work. Try to explain CO vs. N₂ to a partner without looking.",
+    "Could teach it": "Awesome. Help a classmate, or show your teacher your final model."
+  };
+  document.querySelectorAll('input[name="self"]').forEach(r => {
+    r.addEventListener("change", () => {
+      document.getElementById("self-msg").textContent = msgs[r.value];
+    });
+  });
+</script>
+
+</body>
+</html>
